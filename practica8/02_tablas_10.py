@@ -5,6 +5,6 @@
 #   Victor Manuel Andreu Felipe 2025
 
 for i in range(0, 11):
-    print("")
+    print("")   # separador
     for j in range (0, 11):
         print(i, "x",j, "=", i * j)
