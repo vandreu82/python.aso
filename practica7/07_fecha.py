@@ -19,35 +19,49 @@
 #
 #   Victor Manuel Andreu Felipe 2025
 #   
-#   Me gustaría saber como se supone que tengo que recoger el input si no podemos manipular cadenas
-#   y el formato de la fecha debe ser DD/MM/YYYY. Los voy a recoger por separado.
 
-#fecha = str(input("Introduzca una fecha: "))
+fecha = str(input("Introduzca una fecha(formato DD/MM/YY): "))
 
-dia = int(input("Introduzca el día del mes: "))
-mes = int(input("Introduzca el mes en número: "))
-ano = int(input("Introduzca el año: "))
+partes = fecha.split("/")   # separamos la fecha
 
-if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
-    if dia < 0 or dia > 31:
-        corr = "incorrecta"
-    else:
-        corr = "correcta"
-elif mes == 4 or mes == 6 or mes == 7 or mes == 11:
-    if dia < 0 or dia > 31:
-        corr = "incorrecta"
-    else:
-        corr = "correcta"
-elif mes == 2:
-    if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
-        if dia < 0 or dia > 29:
-           corr = "incorrecta"
+# comprobamos que el formato sea correcto
+
+if len(partes) != 3:
+    print("Fecha incorrecta, por favor, use el formato DD/MM/YY")
+else:
+    
+    # asignamos a cada parte una variable
+
+    dia = int(partes[0])
+    mes = int(partes[1])
+    ano = int(partes[2])
+
+    # comprobamos que los meses y los días esten correctos
+
+    if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
+        if dia < 0 or dia > 31:
+            corr = "incorrecta"
         else:
             corr = "correcta"
-    else: 
-        if dia < 0 or dia > 28:
-           corr = "incorrecta"
+    elif mes == 4 or mes == 6 or mes == 7 or mes == 11:
+        if dia < 0 or dia > 31:
+            corr = "incorrecta"
         else:
             corr = "correcta"
-
-print("La fecha " + str(dia) + "/" + str(mes) + "/" + str(ano) + " es " + corr, sep='')
+    # comprobamos los años bisiestos (tengo una duda, 
+    # ¿un año negativo(antes de cristo) puede ser bisiesto?)
+    elif mes == 2:
+        if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
+            if dia < 0 or dia > 29:
+                corr = "incorrecta"
+            else:
+                corr = "correcta"
+        else: 
+            if dia < 0 or dia > 28:
+                corr = "incorrecta"
+            else:
+                corr = "correcta"
+    else:   # aqui comprobamos que los meses estén entre 1 y 12
+        corr = "incorrecta"
+    
+    print("La fecha " + str(dia) + "/" + str(mes) + "/" + str(ano) + " es " + corr, sep='')
