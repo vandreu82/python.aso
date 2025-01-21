@@ -5,6 +5,8 @@
 #
 #   Victor Manuel Andreu Felipe 2025
 
+print("Solución de ecuaciones de segundo grado(con enteros)")
+
 a = int(input('Dame el valor de a: '))
 b = int(input('Dame el valor de b: '))
 c = int(input('Dame el valor de c: '))
@@ -51,12 +53,23 @@ if c != 0:
 
 disc = b * b - 4 * a * c
 
-if disc < 0:
-    print("La ecuación: " + astr + bstr + cstr + " = 0 no tiene solución real.")
-elif disc == 0:
-    sol1 = -b / (2 * a)
-    print("La ecuación: " + astr + bstr + cstr + " = 0 tiene una sola solución, que es x =", int(sol1))
+if a == 0:
+    if b == 0:
+        if c == 0:
+            print("La ecuación: " + cstr + " = 0 tiene infinitas soluciones.")
+        else:
+            print("La ecuación: " + cstr + " = 0 no tiene solución real.")
+    else:
+        sol = -c / float(b)
+        print("La ecuación: " + bstr + cstr + " = 0 es de primer grado y tiene solución x =", sol)
 else:
-    sol1 = (-b + disc ** 0.5) / (2 * a)
-    sol2 = (-b - disc ** 0.5) / (2 * a)
-    print("Las soluciones a la ecuación: " + astr + bstr + cstr + " = 0 son x1 =", int(sol1), "y x2 =", int(sol2))
+    if disc < 0:
+        print("La ecuación: " + astr + bstr + cstr + " = 0 no tiene solución real.")
+    elif disc == 0:
+        sol1 = -b / (2 * a)
+        print("La ecuación: " + astr + bstr + cstr + " = 0 tiene una sola solución, que es x =", sol1)
+    else:
+        # crédito a Diego por usar las matemáticas y darme la sugerencia de ** 0.5 en vez math.square
+        sol1 = (-b + disc ** 0.5) / (2 * a)
+        sol2 = (-b - disc ** 0.5) / (2 * a)
+        print("Las soluciones a la ecuación: " + astr + bstr + cstr + " = 0 son x1 =", sol1, "y x2 =", sol2)
