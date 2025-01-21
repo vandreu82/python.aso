@@ -81,12 +81,17 @@ consu = float(input("Consumo (l/100 Km): "))
 
 km = depo * combu / 10
 
-print("Puedes recorrer", km, "Km más.")
+# control del input
 
-if km >= 200:
-    print("Espera a la próxima gasolinera.")
+if depo < 0 or combu < 0 or consu < 0:
+    print("No puedes tener un depósito que te debe gasolina, ni un coche que te da combustible. Introduce valores positivos.")
 else:
-    print("La gasolinera está a 200 Km. ¡¡ Echa gasolina !!")
+    print("Puedes recorrer", km, "Km más.")
+
+    if km >= 200:
+        print("Espera a la próxima gasolinera.")
+    else:
+        print("La gasolinera está a 200 Km. ¡¡ Echa gasolina !!")
 ```
 
 <div style="page-break-after: always;"></div>
@@ -110,18 +115,23 @@ nota = float(input("Introduzca la nota: "))
 
 literal = ""
 
-if nota < 5:
-    literal = 'Insuficiente'
-elif nota >= 5 and nota < 6:
-    literal = 'Suficiente'
-elif nota >= 6 and nota < 7:
-    literal = 'Bien'
-elif nota >= 7 and nota < 9:
-    literal = 'Notable'
-elif nota >= 9:
-    literal = 'Sobresaliente'
+# control del input
 
-print("Nota: ", literal)
+if nota < 0 or nota > 10:
+    print("La nota debe estar entre 0 y 10")
+else:
+    if nota < 5:
+        literal = 'Insuficiente'
+    elif nota >= 5 and nota < 6:
+        literal = 'Suficiente'
+    elif nota >= 6 and nota < 7:
+        literal = 'Bien'
+    elif nota >= 7 and nota < 9:
+        literal = 'Notable'
+    elif nota >= 9:
+        literal = 'Sobresaliente'
+
+    print("Nota: ", literal)
 ```
 
 <div style="page-break-after: always;"></div>
@@ -311,52 +321,71 @@ else:
 #
 #   Victor Manuel Andreu Felipe 2025
 #   
+#   Como no se pueden usar listas, no conozco la forma de pedir la fecha en DD/MM/YY y luego dividirla
 
-fecha = str(input("Introduzca una fecha(formato DD/MM/YY): "))
+dia = int(input("Introduzca el día del mes: "))
+mes = int(input("Introduzca el mes en número: "))
+ano = int(input("Introduzca el año: "))
 
-partes = fecha.split("/")   # separamos la fecha
+# comprobamos que los meses y los días esten correctos
 
-# comprobamos que el formato sea correcto
-
-if len(partes) != 3:
-    print("Fecha incorrecta, por favor, use el formato DD/MM/YY")
-else:
-    
-    # asignamos a cada parte una variable
-
-    dia = int(partes[0])
-    mes = int(partes[1])
-    ano = int(partes[2])
-
-    # comprobamos que los meses y los días esten correctos
-
-    if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
-        if dia < 0 or dia > 31:
-            corr = "incorrecta"
-        else:
-            corr = "correcta"
-    elif mes == 4 or mes == 6 or mes == 7 or mes == 11:
-        if dia < 0 or dia > 31:
-            corr = "incorrecta"
-        else:
-            corr = "correcta"
-    # comprobamos los años bisiestos (tengo una duda, 
-    # ¿un año negativo(antes de cristo) puede ser bisiesto?)
-    elif mes == 2:
-        if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
-            if dia < 0 or dia > 29:
-                corr = "incorrecta"
-            else:
-                corr = "correcta"
-        else: 
-            if dia < 0 or dia > 28:
-                corr = "incorrecta"
-            else:
-                corr = "correcta"
-    else:   # aqui comprobamos que los meses estén entre 1 y 12
+if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
+    if dia <= 0 or dia > 31:
         corr = "incorrecta"
-    
-    print("La fecha " + str(dia) + "/" + str(mes) + "/" + str(ano) + " es " + corr, sep='')
+    else:
+        corr = "correcta"
+elif mes == 4 or mes == 6 or mes == 9 or mes == 11:
+    if dia <= 0 or dia > 30:
+        corr = "incorrecta"
+    else:
+        corr = "correcta"
+# comprobamos los años bisiestos (tengo una duda, 
+# ¿un año negativo(antes de cristo) puede ser bisiesto?)
+elif mes == 2:
+    if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
+        if dia <= 0 or dia > 29:
+            corr = "incorrecta"
+        else:
+            corr = "correcta"
+    else: 
+        if dia <= 0 or dia > 28:
+            corr = "incorrecta"
+        else:
+            corr = "correcta"
+else:   # aqui comprobamos que los meses estén entre 1 y 12
+    corr = "incorrecta"
+
+# asignación de nombre a los meses numéricos
+
+if mes == 1:
+    mes = "Enero"
+elif mes == 2:
+    mes = "Febrero"
+elif mes == 3:
+    mes = "Marzo"
+elif mes == 4:
+    mes = "Abril"
+elif mes == 5:
+    mes = "Mayo"
+elif mes == 6:
+    mes = "Junio"
+elif mes == 7:
+    mes = "Julio"
+elif mes == 8:
+    mes = "Agosto"
+elif mes == 9:
+    mes = "Septiembre"
+elif mes == 10:
+    mes = "Octubre"
+elif mes == 11:
+    mes = "Noviembre"
+elif mes == 12:
+    mes = "Diciembre"
+
+if corr == "correcta":
+    print("La fecha es " + str(dia) + " de " + str(mes) + " de " + str(ano))
+else:
+    print("La fecha es", corr)
 ```
 
 <div style="page-break-after: always;"></div>
@@ -370,90 +399,32 @@ else:
 #       El número introducido es el treinta y ocho.
 #
 #   Victor Manuel Andreu Felipe 2025
-#   
-#   Este ejercicio es horrible y sabes perfectamente que vamos a usar IA para hacerlo :)
 
 num = int(input("Introduzca un número entre 0 y 100: "))
 
+texto = "El número introducido es el"
+
 if num < 0 or num > 100:    # comprobación de rango
     print("Debe ser un número entre 0 y 100")
-# las treinta y ocho excepciones
+# las excepciones
 elif num == 0:              
-    print("El número introducido es el cero.")
-elif num == 1:
-    print("El número introducido es el uno.")
-elif num == 2:
-    print("El número introducido es el dos.")
-elif num == 3:
-    print("El número introducido es el tres.")
-elif num == 4:
-    print("El número introducido es el cuatro.")
-elif num == 5:
-    print("El número introducido es el cinco.")
-elif num == 6:
-    print("El número introducido es el seis.")
-elif num == 7:
-    print("El número introducido es el siete.")
-elif num == 8:
-    print("El número introducido es el ocho.")
-elif num == 9:
-    print("El número introducido es el nueve.")
+    print(texto, "cero.")
 elif num == 10:
-    print("El número introducido es el diez.")
+    print(texto, "diez.")
 elif num == 11:
-    print("El número introducido es el once.")
+    print(texto, "once.")
 elif num == 12:
-    print("El número introducido es el doce.")
+    print(texto, "doce.")
 elif num == 13:
-    print("El número introducido es el trece.")
+    print(texto, "trece.")
 elif num == 14:
-    print("El número introducido es el catorce.")
+    print(texto, "catorce.")
 elif num == 15:
-    print("El número introducido es el quince.")
-elif num == 16:
-    print("El número introducido es el dieciséis.")
-elif num == 17:
-    print("El número introducido es el diecisiete.")
-elif num == 18:
-    print("El número introducido es el dieciocho.")
-elif num == 19:
-    print("El número introducido es el diecinueve.")
+    print(texto, "quince.")
 elif num == 20:
-    print("El número introducido es el veinte.")
-elif num == 21:
-    print("El número introducido es el veintiuno.")
-elif num == 22:
-    print("El número introducido es el veintidós.")
-elif num == 23:
-    print("El número introducido es el veintitrés.")
-elif num == 24:
-    print("El número introducido es el veinticuatro.")
-elif num == 25:
-    print("El número introducido es el veinticinco.")
-elif num == 26:
-    print("El número introducido es el veintiséis.")
-elif num == 27:
-    print("El número introducido es el veintisiete.")
-elif num == 28:
-    print("El número introducido es el veintiocho.")
-elif num == 29:
-    print("El número introducido es el veintinueve.")
-elif num == 30:
-    print("El número introducido es el treinta.")
-elif num == 40:
-    print("El número introducido es el cuarenta.")
-elif num == 50:
-    print("El número introducido es el cincuenta.")
-elif num == 60:
-    print("El número introducido es el sesenta.")
-elif num == 70:
-    print("El número introducido es el setenta.")
-elif num == 80:
-    print("El número introducido es el ochenta.")
-elif num == 90:
-    print("El número introducido es el noventa.")
+    print(texto, "veinte")
 elif num == 100:
-    print("El número introducido es el cien.")
+    print(texto, "cien.")
 else:
 # dividimos los dígitos y declaramos las cadenas de las cifras en letra
     dec = int(num / 10)
@@ -461,7 +432,9 @@ else:
     decl = str("")
     unil = str("")
 # construimos la cadena en base a las decenas y las unidades
-    if dec == 3:
+    if dec == 2:
+        decl = "veinti"
+    elif dec == 3:
         decl = "treinta"
     elif dec == 4:
         decl = "cuarenta"
@@ -494,7 +467,18 @@ else:
         unil += "ocho."
     elif uni == 9:
         unil += "nueve."
-    print("El número introducido es el", decl, "y", unil)
+    # imprimimos dependiendo de los valores
+    if num < 10:
+        print(texto, unil)
+    elif num >= 16 and num < 20:
+        decl = "dieci"
+        print(texto, decl + unil, sep=' ')
+    elif num >= 21 and num < 30:
+        print(texto, decl + unil, sep=' ')
+    elif num > 30 and num < 100 and num % 10 != 0:
+        print(texto, decl, "y", unil)
+    else:
+        print(texto, decl)
 ```
 
 <div style="page-break-after: always;"></div>
@@ -509,15 +493,13 @@ else:
 #       Menor número: -18
 #
 #   Victor Manuel Andreu Felipe 2025
+#
+#   Como no se pueden usar listas, no conozco la manera de pedir los cuatro números de una vez
 
-cadena = str(input("Introduzca 4 números enteros(separados por espacios): "))
-
-partes = cadena.split(" ")
-
-num1 = int(partes[0])
-num2 = int(partes[1])
-num3 = int(partes[2])
-num4 = int(partes[3])
+num1 = int(input("Introduzca el primer número: "))
+num2 = int(input("Introduzca el segundo número: "))
+num3 = int(input("Introduzca el tercer número: "))
+num4 = int(input("Introduzca el cuarto número: "))
 
 # calculamos el mayor
 if num1 >= num2 and num1 >= num3 and num1 >= num4:
@@ -545,68 +527,47 @@ else:
 ```python
 #!/usr/bin/python
 #
-#    11.- Programa que lee la nota de 5 alumnos y dice cuántos están aprobados y cuál es la nota
-#    media. Para este ejercicio no se pueden utilizar bucles.
-#        Nota del alumno 01: 5.60
-#        Nota del alumno 02: 4.20
-#        Nota del alumno 03: 8.35
-#        Nota del alumno 04: 7.23
-#        Nota del alumno 05: 5.01
-#        Aprobados: 4
-#        Suspensos: 1
-#        Nota media: 6.08
+#    10.- Escribe un programa que dada una hora en el formato hh:mm:ss muestre la hora siguiente.
+#    Ejemplo:
+#       Hora: 23:58:59
+#       23:59:00
+#    Ejemplo:
+#       Hora: 23:63:59
+#       La hora es incorrecta
 #
 #   Victor Manuel Andreu Felipe 2025
-#   
+#
+# Como no se pueden usar listas, no se recoger la hora en hh:mm:ss
 
-apro = 0    # iniciamos los contadores
-susp = 0
-
-nota1 = int(input("Nota del alumno 01: "))
-nota2 = int(input("Nota del alumno 02: "))
-nota3 = int(input("Nota del alumno 03: "))
-nota4 = int(input("Nota del alumno 04: "))
-nota5 = int(input("Nota del alumno 05: "))
-
-# control de rangos
-
-if (nota1 < 0 or nota1 > 10 or
-    nota2 < 0 or nota2 > 10 or
-    nota3 < 0 or nota3 > 10 or
-    nota4 < 0 or nota4 > 10 or
-    nota5 < 0 or nota5 > 10):
-    print("Deben ser notas entre 0 y 10")
-else:
-    # incrementamos aprobados o suspensos
-    if nota1 < 5:
-        susp += 1
+hour = int(input("Hora: "))
+min = int(input("Minutos: "))
+sec = int(input("Segundos: "))
+if (hour < 0 or hour > 23 or
+    min < 0 or min > 59 or
+    sec < 0 or sec > 59):
+    print("La hora es incorrecta")
+else:   # incrementamos la hora en 1 segundo
+    sec += 1
+    if sec == 60:   # comprobamos los valores tope y reseteamos en caso necesario
+        sec = 0
+        min += 1
+    if min == 60:
+        min = 0
+        hour += 1
+    if hour == 24:
+        hour = 0
+ 
+    hourlit = str(hour)
+    # si los valores son menor que 10, agregamos un 0 la izquierda
+    if min < 10:
+        minlit = "0" + str(min)
     else:
-        apro += 1
-
-    if nota2 < 5:
-        susp += 1
+        minlit = str(min)
+    if sec < 10:
+        seclit = "0" + str(sec)
     else:
-        apro += 1
-
-    if nota3 < 5:
-        susp += 1
-    else:
-        apro += 1
-
-    if nota4 < 5:
-        susp += 1
-    else:
-        apro += 1
-
-    if nota5 < 5:
-        susp += 1
-    else:
-        apro += 1
-
-    print("Aprobados: ", apro)
-    print("Suspensos: ", susp)
-    print("Nota media: ", (nota1 + nota2 + nota3 + nota4 + nota5) / 5)
-
+        seclit = str(sec)
+    print(hourlit + ":" + minlit + ":" + seclit)
 ```
 
 <div style="page-break-after: always;"></div>
@@ -740,6 +701,74 @@ else:
     print("Suspensos: ", susp)
     print("Nota media: ", (nota1 + nota2 + nota3 + nota4 + nota5) / 5)
 
+```
+
+<div style="page-break-after: always;"></div>
+
+```python
+#!/usr/bin/python
+#
+#    11.- Programa que lee la nota de 5 alumnos y dice cuántos están aprobados y cuál es la nota
+#    media. Para este ejercicio no se pueden utilizar bucles.
+#        Nota del alumno 01: 5.60
+#        Nota del alumno 02: 4.20
+#        Nota del alumno 03: 8.35
+#        Nota del alumno 04: 7.23
+#        Nota del alumno 05: 5.01
+#        Aprobados: 4
+#        Suspensos: 1
+#        Nota media: 6.08
+#
+#   Victor Manuel Andreu Felipe 2025
+#   
+
+apro = 0    # iniciamos los contadores
+susp = 0
+
+nota1 = float(input("Nota del alumno 01: "))
+nota2 = float(input("Nota del alumno 02: "))
+nota3 = float(input("Nota del alumno 03: "))
+nota4 = float(input("Nota del alumno 04: "))
+nota5 = float(input("Nota del alumno 05: "))
+
+# control de rangos
+
+if (nota1 < 0 or nota1 > 10 or
+    nota2 < 0 or nota2 > 10 or
+    nota3 < 0 or nota3 > 10 or
+    nota4 < 0 or nota4 > 10 or
+    nota5 < 0 or nota5 > 10):
+    print("Deben ser notas entre 0 y 10")
+else:
+    # incrementamos aprobados o suspensos
+    if nota1 < 5:
+        susp += 1
+    else:
+        apro += 1
+
+    if nota2 < 5:
+        susp += 1
+    else:
+        apro += 1
+
+    if nota3 < 5:
+        susp += 1
+    else:
+        apro += 1
+
+    if nota4 < 5:
+        susp += 1
+    else:
+        apro += 1
+
+    if nota5 < 5:
+        susp += 1
+    else:
+        apro += 1
+
+    print("Aprobados: ", apro)
+    print("Suspensos: ", susp)
+    print("Nota media: ", (nota1 + nota2 + nota3 + nota4 + nota5) / 5)
 ```
 
 <div style="page-break-after: always;"></div>
