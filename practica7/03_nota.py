@@ -16,15 +16,20 @@ nota = float(input("Introduzca la nota: "))
 
 literal = ""
 
-if nota < 5:
-    literal = 'Insuficiente'
-elif nota >= 5 and nota < 6:
-    literal = 'Suficiente'
-elif nota >= 6 and nota < 7:
-    literal = 'Bien'
-elif nota >= 7 and nota < 9:
-    literal = 'Notable'
-elif nota >= 9:
-    literal = 'Sobresaliente'
+# control del input
 
-print("Nota: ", literal)
+if nota < 0 or nota > 10:
+    print("La nota debe estar entre 0 y 10")
+else:
+    if nota < 5:
+        literal = 'Insuficiente'
+    elif nota >= 5 and nota < 6:
+        literal = 'Suficiente'
+    elif nota >= 6 and nota < 7:
+        literal = 'Bien'
+    elif nota >= 7 and nota < 9:
+        literal = 'Notable'
+    elif nota >= 9:
+        literal = 'Sobresaliente'
+
+    print("Nota: ", literal)

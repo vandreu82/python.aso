@@ -17,11 +17,11 @@
 apro = 0    # iniciamos los contadores
 susp = 0
 
-nota1 = int(input("Nota del alumno 01: "))
-nota2 = int(input("Nota del alumno 02: "))
-nota3 = int(input("Nota del alumno 03: "))
-nota4 = int(input("Nota del alumno 04: "))
-nota5 = int(input("Nota del alumno 05: "))
+nota1 = float(input("Nota del alumno 01: "))
+nota2 = float(input("Nota del alumno 02: "))
+nota3 = float(input("Nota del alumno 03: "))
+nota4 = float(input("Nota del alumno 04: "))
+nota5 = float(input("Nota del alumno 05: "))
 
 # control de rangos
 

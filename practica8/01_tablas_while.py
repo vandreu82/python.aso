@@ -18,8 +18,8 @@
 #   Victor Manuel Andreu Felipe 2025
 
 num = int(input("Número: "))
-num2 = 0
+i = 0
 
-while num2 < 11:
-    print(num, "x",num2, "=", num * num2)
-    num2 += 1
+while i < 11:
+    print(num, "x",i, "=", num * i)
+    i += 1

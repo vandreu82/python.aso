@@ -7,15 +7,13 @@
 #       Menor número: -18
 #
 #   Victor Manuel Andreu Felipe 2025
+#
+#   Como no se pueden usar listas, no conozco la manera de pedir los cuatro números de una vez
 
-cadena = str(input("Introduzca 4 números enteros(separados por espacios): "))
-
-partes = cadena.split(" ")
-
-num1 = int(partes[0])
-num2 = int(partes[1])
-num3 = int(partes[2])
-num4 = int(partes[3])
+num1 = int(input("Introduzca el primer número: "))
+num2 = int(input("Introduzca el segundo número: "))
+num3 = int(input("Introduzca el tercer número: "))
+num4 = int(input("Introduzca el cuarto número: "))
 
 # calculamos el mayor
 if num1 >= num2 and num1 >= num3 and num1 >= num4:

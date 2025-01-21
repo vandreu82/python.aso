@@ -26,9 +26,14 @@ consu = float(input("Consumo (l/100 Km): "))
 
 km = depo * combu / 10
 
-print("Puedes recorrer", km, "Km más.")
+# control del input
 
-if km >= 200:
-    print("Espera a la próxima gasolinera.")
+if depo < 0 or combu < 0 or consu < 0:
+    print("No puedes tener un depósito que te debe gasolina, ni un coche que te da combustible. Introduce valores positivos.")
 else:
-    print("La gasolinera está a 200 Km. ¡¡ Echa gasolina !!")
+    print("Puedes recorrer", km, "Km más.")
+
+    if km >= 200:
+        print("Espera a la próxima gasolinera.")
+    else:
+        print("La gasolinera está a 200 Km. ¡¡ Echa gasolina !!")
