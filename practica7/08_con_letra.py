@@ -29,7 +29,7 @@ elif num == 14:
 elif num == 15:
     print(texto, "quince.")
 elif num == 20:
-    print(texto, "veinte")
+    print(texto, "veinte.")
 elif num == 100:
     print(texto, "cien.")
 else:
@@ -57,32 +57,32 @@ else:
         decl = "noventa"
 
     if uni == 1:
-        unil = "uno."
+        unil = "uno"
     elif uni == 2:
-        unil = "dos."
+        unil = "dos"
     elif uni == 3:
-        unil = "tres."
+        unil = "tres"
     elif uni == 4:
-        unil = "cuatro."
+        unil = "cuatro"
     elif uni == 5:
-        unil = "cinco."
+        unil = "cinco"
     elif uni == 6:
-        unil = "seis."
+        unil = "seis"
     elif uni == 7:
-        unil = "siete."
+        unil = "siete"
     elif uni == 8:
-        unil = "ocho."
+        unil = "ocho"
     elif uni == 9:
-        unil = "nueve."
+        unil = "nueve"
     # imprimimos dependiendo de los valores
     if num < 10:
-        print(texto, unil)
+        print(texto, unil + ".")
     elif num >= 16 and num < 20:
         decl = "dieci"
-        print(texto, decl + unil, sep=' ')
+        print(texto, decl + unil + ".", sep=' ')
     elif num >= 21 and num < 30:
-        print(texto, decl + unil, sep=' ')
+        print(texto, decl + unil + ".", sep=' ')
     elif num > 30 and num < 100 and num % 10 != 0:
-        print(texto, decl, "y", unil)
+        print(texto, decl, "y", unil + ".")
     else:
-        print(texto, decl)
+        print(texto, decl + ".")
