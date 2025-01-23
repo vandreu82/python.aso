@@ -57,23 +57,23 @@ else:
         decl = "noventa"
 
     if uni == 1:
-        unil += "uno."
+        unil = "uno."
     elif uni == 2:
-        unil += "dos."
+        unil = "dos."
     elif uni == 3:
-        unil += "tres."
+        unil = "tres."
     elif uni == 4:
-        unil += "cuatro."
+        unil = "cuatro."
     elif uni == 5:
-        unil += "cinco."
+        unil = "cinco."
     elif uni == 6:
-        unil += "seis."
+        unil = "seis."
     elif uni == 7:
-        unil += "siete."
+        unil = "siete."
     elif uni == 8:
-        unil += "ocho."
+        unil = "ocho."
     elif uni == 9:
-        unil += "nueve."
+        unil = "nueve."
     # imprimimos dependiendo de los valores
     if num < 10:
         print(texto, unil)
