@@ -16,7 +16,7 @@ else:
     suma = 0
     i = 0
     while i <= num:
-        suma = suma + i
+        suma += i
         i += 2  # acumulación para sumar solo los pares
 
     print("La suma es:", suma)
