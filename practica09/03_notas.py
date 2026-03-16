@@ -26,13 +26,13 @@ def leer_notas():
     while True:
         entrada = input(f"Nota del alumno {contador}: ")
         
-        if entrada == "":  # Si el usuario pulsa ENTER sin escribir nada
+        if entrada == "":  # salida
             break
         
         try:
             nota = float(entrada)
-            if 0 <= nota <= 10:  # Validación de nota válida
-                notas.append(nota)
+            if 0 <= nota <= 10:  # comprobación de nota
+                notas.append(nota) # acumulación de notas
                 contador += 1
             else:
                 print("Por favor, introduce una nota entre 0 y 10.")
@@ -44,7 +44,7 @@ def leer_notas():
 def mostrar_resumen(notas):
     print("\nSe han introducido las siguientes notas:")
     for i, nota in enumerate(notas, start=1):
-        print(f"Alumno {i:02d}: {nota:.2f}")
+        print(f"Alumno {i:02d}: {nota:.2f}") # formateo
 
     aprobados = sum(1 for nota in notas if nota >= 5)
     suspensos = len(notas) - aprobados
@@ -55,7 +55,6 @@ def mostrar_resumen(notas):
     print(f"Aprobados: {aprobados}")
     print(f"Suspensos: {suspensos}")
     print(f"Nota media: {nota_media:.2f}")
-
-# Programa principal
+    
 notas = leer_notas()
 mostrar_resumen(notas)

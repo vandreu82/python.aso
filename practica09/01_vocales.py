@@ -22,8 +22,7 @@ def contar_vocales(frase):
             u += 1
 
     print(f"Vocales: a({a}), e({e}), i({i}), o({o}), u({u})")
-
-# Solicitar la frase al usuario
+    
 frase = input("Introduzca una frase: ")
 
 contar_vocales(frase)
